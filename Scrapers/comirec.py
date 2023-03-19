@@ -22,8 +22,10 @@ headers = {
 
 
 response = requests.post('https://www.gba.gob.ar/comirec/licitaciones_comirec', 
-                         headers=headers, 
+                         headers=headers)
                          
 soup = BeautifulSoup(response.content, 'html.parser')
 
-print(soup)
+with open('comirec.html', 'w', encoding='utf-8') as f:
+    f.write(soup.prettify())
+
