@@ -1,0 +1,27 @@
+Keywords = [Remediacion, agua]
+Hoy = Hoy()
+DosSemanasAtras = HaceDosSemanas()
+
+Mientras hayan Keywords: 
+    Escribo en "Objeto de Publicacion" Keywords[0]
+    Escribo en "Fecha de apertura desde" DosSemanasAtras
+    Escribo en "Fecha de apertura hasta" Hoy 
+
+    Localizo boton y lo clickeo 
+
+    Mientras haya tabla:  
+        Loopeo por la tabla: 
+            Localizo Link de Numero de Publicacion 
+            Localizo Objeto 
+            Armo par <Objeto, Link de Numero de Publicacion> 
+            Me guardo el par en una lista
+        Si no hay pagina: 
+            Break 
+        Sino: 
+            Paso a siguiente pagina
+
+    Elimino primer Keyword 
+
+Paso datos a Excel  
+    
+
